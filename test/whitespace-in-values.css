@@ -18,3 +18,7 @@ aside {
     5px 5px 30px 5px blue
     ;
 }
+
+div {
+  margin: 0 calc( 0.5 * (var(--line-height) / 2 + (2em - 1px) ) );
+}

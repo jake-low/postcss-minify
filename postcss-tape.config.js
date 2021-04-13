@@ -5,6 +5,9 @@ module.exports = {
 	"whitespace-basic": {
 		message: "should remove basic whitespace",
 	},
+	"whitespace-in-at-rules": {
+		message: "should remove whitespace in at-rule parameters",
+	},
 	"whitespace-in-selectors": {
 		message: "should remove whitespace in selectors",
 	},

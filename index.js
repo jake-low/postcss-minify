@@ -17,15 +17,9 @@ function minifySelector(str) {
 function minifyValue(str) {
   const parsed = valueParser(str.trim())
   parsed.walk((node) => {
-    switch (node.type) {
-      case "div":
-        node.before = ""
-        node.after = ""
-        break
-      case "space":
-        node.value = " "
-        break
-    }
+    if (node.before) node.before = ""
+    if (node.after) node.after = ""
+    if (node.type === "space") node.value = " "
   })
   return parsed.toString()
 }
@@ -33,6 +27,11 @@ function minifyValue(str) {
 module.exports = () => {
   return {
     postcssPlugin: "postcss-minify",
+
+    AtRule: (atrule) => {
+      atrule.raws = { before: "", after: "", afterName: " " }
+      atrule.params = minifyValue(atrule.params)
+    },
 
     Comment: (comment) => {
       if (comment.text[0] === '!') {
