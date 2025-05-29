@@ -30,7 +30,7 @@
     "postcss-tape": "^6.0"
   },
   "dependencies": {
-    "postcss-selector-parser": "^6.0",
+    "postcss-selector-parser": "^6.0 || ^7.0",
     "postcss-value-parser": "^4.1"
   }
 }
